@@ -1,6 +1,12 @@
 // import React from "react";
 import { loremIpsum } from "lorem-ipsum";
+import { Header } from "src/widgets";
 
 export const Home = () => {
-  return <div>{loremIpsum({ count: 5 })}</div>;
+  return (
+    <>
+      <Header />
+      <div>{loremIpsum({ count: 5 })}</div>
+    </>
+  );
 };

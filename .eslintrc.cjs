@@ -71,5 +71,11 @@ module.exports = {
     "@typescript-eslint/no-unused-expressions": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+    "prettier/prettier": [
+      "off",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 };

@@ -35,7 +35,7 @@ export const Header = () => {
   return (
     <div className="bg-gray-800 py-0 md:py-2">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-28">
           <Link
             to="/"
             className="

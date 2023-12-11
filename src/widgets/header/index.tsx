@@ -1,6 +1,10 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
+
+import ReactLogo from "./Rick_and_Morty.svg?react";
 
 const navlinks = [
   {
@@ -31,7 +35,7 @@ export const Header = () => {
   return (
     <div className="bg-gray-800 py-0 md:py-2">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-28">
           <Link
             to="/"
             className="
@@ -40,13 +44,7 @@ export const Header = () => {
 							"
           >
             <div className="flex items-center m-0">
-              <Icon
-                icon="tabler:brand-disney"
-                width={50}
-                height={50}
-                className="block"
-              />
-              <div className="text-3xl m-0 tracking-widest">isney</div>
+              <ReactLogo width={500} height={100} />
             </div>
           </Link>
           {/* navlinks */}
@@ -58,7 +56,7 @@ export const Header = () => {
 									text-gray-300 hover:bg-gray-600 hover:text-white
 									transition-all duration-500
 									px-3 py-2 rounded-md font-medium
-									text-md lg:text-lg
+									text-lg lg:text-xl
 									"
                   key={link.id}
                   to={link.link}

@@ -5,7 +5,6 @@ import { Character } from "src/app/providers/models/Character";
 import { fetchCharacters } from "src/app/providers/store/reducers/ActionCreators";
 import { CharacterCard } from "src/entities/CharacterCard";
 import { Loader } from "src/shared/ui/loader";
-import { Header } from "src/widgets";
 
 export const Home = () => {
   const dispatch = useAppDispatch();
@@ -18,24 +17,26 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
-      <Header />
-      <div className="w-full my-8">
-        {isLoading && (
-          <div className="text-center">
-            <Loader />
-          </div>
-        )}
-        {error && <h1>{error}</h1>}
-        <div className="grid grid-cols-6 gap-4">
-          {characters.data &&
-            characters.data.map((item: Character) => (
-              <div key={item._id} className="">
-                <CharacterCard name={item.name} img={item.imageUrl} />
-              </div>
-            ))}
+    <div className="w-full my-8">
+      {isLoading && (
+        <div className="text-center">
+          <Loader />
         </div>
+      )}
+      {error && <h1>{error}</h1>}
+      <div className="grid grid-cols-4 gap-5">
+        {characters.results &&
+          characters.results.map((character: Character) => (
+            <div key={character.id} className="">
+              <CharacterCard
+                id={character.id}
+                name={character.name}
+                img={character.image}
+                species={character.species}
+              />
+            </div>
+          ))}
       </div>
-    </>
+    </div>
   );
 };

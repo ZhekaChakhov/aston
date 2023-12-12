@@ -1,12 +1,13 @@
 // import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import { Home } from "src/pages/Home";
+import { PropsWithChildren } from "react";
+import { Router } from "src/shared/routing";
+import { Layout } from "src/widgets/layout";
 
-export const App = () => {
+export const App = ({ children }: PropsWithChildren) => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="*" element={<Home />} />
-    </Routes>
+    <Layout>
+      <Router />
+      {children}
+    </Layout>
   );
 };

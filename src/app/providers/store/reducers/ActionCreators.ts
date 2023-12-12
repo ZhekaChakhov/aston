@@ -7,7 +7,7 @@ export const fetchCharacters = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get<Character[]>(
-        "https://api.disneyapi.dev/character?pageSize=102",
+        "https://rickandmortyapi.com/api/character",
       );
       return response.data;
     } catch (error) {

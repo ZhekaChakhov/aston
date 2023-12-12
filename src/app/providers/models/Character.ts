@@ -1,9 +1,10 @@
 export interface Character {
-  _id: number;
+  id: number;
   name: string;
-  imageUrl: string;
+  image: string;
+  species: string;
 }
 
 export interface CharacterData {
-  data?: Character[];
+  results?: Character[];
 }

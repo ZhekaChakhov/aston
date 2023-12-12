@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { Home } from "src/pages/Home";
+import { Home } from "src/pages/home";
 
 export const Router = () => {
   return (

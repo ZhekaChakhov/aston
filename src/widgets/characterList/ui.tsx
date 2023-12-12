@@ -6,7 +6,7 @@ import { fetchCharacters } from "src/app/providers/store/reducers/ActionCreators
 import { CharacterCard } from "src/entities/CharacterCard";
 import { Loader } from "src/shared/ui/loader";
 
-export const Home = () => {
+export const CharacterList = () => {
   const dispatch = useAppDispatch();
   const { characters, isLoading, error } = useAppSelector(
     (state) => state.characterReducer,

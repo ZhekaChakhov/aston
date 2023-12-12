@@ -3,13 +3,13 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "src/app/providers/hooks/redux";
 import { Character } from "src/app/providers/models/Character";
 import { fetchCharacters } from "src/app/providers/store/reducers/ActionCreators";
-import { CharacterCard } from "src/entities/CharacterCard";
+import { CharacterCard } from "src/entities/characterCard";
 import { Loader } from "src/shared/ui/loader";
 
 export const CharacterList = () => {
   const dispatch = useAppDispatch();
   const { characters, isLoading, error } = useAppSelector(
-    (state) => state.characterReducer,
+    (state) => state.charactersReducer,
   );
 
   useEffect(() => {

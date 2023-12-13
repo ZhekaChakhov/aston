@@ -3,19 +3,19 @@ import { CharacterData } from "src/app/providers/models/Character";
 
 import { fetchCharacters } from "./ActionCreators";
 
-interface CharacterState {
+interface CharactersState {
   characters: CharacterData;
   isLoading: boolean;
   error: string;
 }
 
-const initialState: CharacterState = {
+const initialState: CharactersState = {
   characters: {},
   isLoading: false,
   error: "",
 };
 
-export const characterSlice = createSlice({
+export const charactersSlice = createSlice({
   name: "character",
   initialState,
   reducers: {},
@@ -42,4 +42,4 @@ export const characterSlice = createSlice({
   },
 });
 
-export const characterReducer = characterSlice.reducer;
+export const charactersReducer = charactersSlice.reducer;

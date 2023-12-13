@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router";
-import { Home } from "src/pages/Home";
+import { CharacterPage } from "src/pages/characterPage";
+import { Home } from "src/pages/home";
 
 export const Router = () => {
   return (
@@ -8,6 +9,7 @@ export const Router = () => {
       <Route path="/search" element={<Home />} />
       <Route path="/history" element={<Home />} />
       <Route path="/favorites" element={<Home />} />
+      <Route path="/character/:id" element={<CharacterPage />} />;
     </Routes>
   );
 };

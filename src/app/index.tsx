@@ -1,13 +1,12 @@
 // import { useState } from "react";
-import { PropsWithChildren } from "react";
-import { Router } from "src/shared/routing";
-import { Layout } from "src/widgets/layout";
+import { Layout } from "src/widgets/Layout";
 
-export const App = ({ children }: PropsWithChildren) => {
+import { AppRouter } from "./providers/router";
+
+export const App = () => {
   return (
     <Layout>
-      <Router />
-      {children}
+      <AppRouter />
     </Layout>
   );
 };

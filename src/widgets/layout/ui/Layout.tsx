@@ -3,8 +3,7 @@
 // import React from "react";
 import type { PropsWithChildren } from "react";
 import { Link, NavLink } from "react-router-dom";
-
-import ReactLogo from "./Rick_and_Morty.svg?react";
+import ReactLogo from "src/shared/assets/icons/Rick_and_Morty.svg?react";
 
 const navlinks = [
   {

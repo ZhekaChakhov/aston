@@ -1,10 +1,13 @@
 // import React from "react";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "src/app/providers/hooks/redux";
-import { Character } from "src/app/providers/models/Character";
-import { fetchCharacters } from "src/app/providers/store/reducers/ActionCreators";
-import { CharacterCard } from "src/entities/characterCard";
-import { Loader } from "src/shared/ui/loader";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "src/app/providers/store/config/hooks/redux";
+import { Character } from "src/app/providers/store/config/models/Character";
+import { fetchCharacters } from "src/app/providers/store/config/reducers/ActionCreators";
+import { CharacterCard } from "src/entities/CharacterCard";
+import { Loader } from "src/shared/ui/loader/Loader";
 
 export const CharacterList = () => {
   const dispatch = useAppDispatch();

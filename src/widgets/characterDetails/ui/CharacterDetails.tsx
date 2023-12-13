@@ -1,8 +1,11 @@
 // import React from "react";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "src/app/providers/hooks/redux";
-import { fetchCharacterById } from "src/app/providers/store/reducers/ActionCreators";
-import { Loader } from "src/shared/ui/loader";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "src/app/providers/store/config/hooks/redux";
+import { fetchCharacterById } from "src/app/providers/store/config/reducers/ActionCreators";
+import { Loader } from "src/shared/ui/loader/Loader";
 
 export const CharacterDetails = (prop: { id: number }) => {
   const dispatch = useAppDispatch();

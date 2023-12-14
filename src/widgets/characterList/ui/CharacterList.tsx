@@ -7,7 +7,7 @@ import {
 import { Character } from "src/app/providers/store/config/models/Character";
 import { fetchCharacters } from "src/app/providers/store/config/reducers/ActionCreators";
 import { CharacterCard } from "src/entities/CharacterCard";
-import { Loader } from "src/shared/ui/loader/Loader";
+import { Loader } from "src/shared/ui/Loader/Loader";
 
 export const CharacterList = () => {
   const dispatch = useAppDispatch();

@@ -5,7 +5,7 @@ import {
   useAppSelector,
 } from "src/app/providers/store/config/hooks/redux";
 import { fetchCharacterById } from "src/app/providers/store/config/reducers/ActionCreators";
-import { Loader } from "src/shared/ui/loader/Loader";
+import { Loader } from "src/shared/ui/Loader/Loader";
 
 export const CharacterDetails = (prop: { id: number }) => {
   const dispatch = useAppDispatch();

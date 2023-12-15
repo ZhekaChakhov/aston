@@ -4,9 +4,12 @@ import { MainPage } from "src/pages/MainPage";
 import { privateRoutes } from "../config/routes/private";
 import { publicRoutes } from "../config/routes/public";
 
-export const AppRouter = () => {
-  const user = true;
-  return user ? (
+interface Props {
+  isAuth: boolean;
+}
+
+export const AppRouter = ({ isAuth }: Props) => {
+  return isAuth ? (
     <Routes>
       {privateRoutes.map(({ path, Component }) => (
         <Route path={path} element={Component} key={path} />

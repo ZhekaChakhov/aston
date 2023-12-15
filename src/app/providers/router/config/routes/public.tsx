@@ -1,3 +1,4 @@
+import { CharacterPage } from "src/pages/CharacterPage";
 import { LoginPage } from "src/pages/LoginPage";
 import { MainPage } from "src/pages/MainPage";
 import { RegisterPage } from "src/pages/RegisterPage";
@@ -11,15 +12,19 @@ export const publicRoutes = [
     Component: <MainPage />,
   },
   {
+    path: publicRoutePaths.SEARCH,
+    Component: <SearchPage />,
+  },
+  {
+    path: publicRoutePaths.CHARACTER,
+    Component: <CharacterPage />,
+  },
+  {
     path: publicRoutePaths.LOGIN,
     Component: <LoginPage />,
   },
   {
     path: publicRoutePaths.REGISTER,
     Component: <RegisterPage />,
-  },
-  {
-    path: publicRoutePaths.SEARCH,
-    Component: <SearchPage />,
   },
 ];

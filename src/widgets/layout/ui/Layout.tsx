@@ -9,8 +9,8 @@ import { Button } from "src/shared/ui/Button/Button";
 
 interface Props {
   isAuth: boolean;
-  onClick: () => void;
-  children: ReactNode;
+  onClick?: () => void;
+  children?: ReactNode;
 }
 
 export const Layout = ({ isAuth, onClick, children }: Props) => {

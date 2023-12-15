@@ -12,7 +12,7 @@ export const CharacterContainer = (props: { page: number }) => {
   } = characterApi.useGetCharactersQuery(props.page);
 
   return (
-    <div className="w-full my-8">
+    <div id="character-container" className="w-full my-8">
       {isLoading && (
         <div className="text-center">
           <Loader />

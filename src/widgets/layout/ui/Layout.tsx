@@ -15,7 +15,7 @@ interface Props {
 
 export const Layout = ({ isAuth, onClick, children }: Props) => {
   const buttonStyle =
-    "p-3 inline-block font-semibold border-4 border-[#12b488]";
+    "p-3 inline-block font-semibold bg-red-100 border-4 border-red-200 box-border";
   return (
     <div>
       <div className="shadow-sm bg-white">

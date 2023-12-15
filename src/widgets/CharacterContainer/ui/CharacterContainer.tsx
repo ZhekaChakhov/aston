@@ -4,12 +4,12 @@ import { characterApi } from "src/shared/api/charactersApi";
 import { Character } from "src/shared/models/Character";
 import { Loader } from "src/shared/ui/Loader/Loader";
 
-export const CharacterContainer = () => {
+export const CharacterContainer = (props: { page: number }) => {
   const {
     data: characters,
     error,
     isLoading,
-  } = characterApi.useGetCharactersQuery(2);
+  } = characterApi.useGetCharactersQuery(props.page);
 
   return (
     <div className="w-full my-8">

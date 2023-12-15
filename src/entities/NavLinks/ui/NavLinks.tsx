@@ -12,7 +12,7 @@ interface Props {
 export const NavLinks = ({ isAuth }: Props) => {
   return (
     <div className="flex justify-between p-4 w-1/2">
-      <ul className="flex gap-4 text-2xl">
+      <ul className="flex gap-4 text-md md:text-lg lg:text-2xl">
         {isAuth
           ? privateLinks.map((link) => (
               <li key={link.id}>

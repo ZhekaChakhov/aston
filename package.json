@@ -24,6 +24,7 @@
     "react-router-dom": "^6.20.1"
   },
   "devDependencies": {
+    "@iconify-icon/react": "^1.0.8",
     "@iconify/react": "^4.1.1",
     "@storybook/addon-essentials": "^7.6.4",
     "@storybook/addon-interactions": "^7.6.4",

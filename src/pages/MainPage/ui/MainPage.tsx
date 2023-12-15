@@ -1,6 +1,7 @@
 // import React from "react";
-import { CharacterList } from "src/widgets/CharacterList";
+import { CharacterContainer } from "src/widgets/CharacterContainer";
+// import { CharacterList } from "src/widgets/CharacterList";
 
 export const MainPage = () => {
-  return <CharacterList />;
+  return <CharacterContainer />;
 };

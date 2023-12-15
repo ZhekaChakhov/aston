@@ -1,6 +1,6 @@
 // import React from "react";
 import { useParams } from "react-router";
-import { CharacterDetails } from "src/widgets/characterDetails";
+import { CharacterDetails } from "src/widgets/CharacterDetails";
 
 export const CharacterPage = () => {
   const params = useParams();

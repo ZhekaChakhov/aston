@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Character } from "src/app/providers/store/config/models/Character";
+import { Character } from "src/shared/models/Character";
 
 export const fetchCharacters = createAsyncThunk(
   "character/fetchAll",

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CharacterData } from "src/app/providers/store/config/models/Character";
+import { CharacterData } from "src/shared/models/Character";
 
 import { fetchCharacters } from "./ActionCreators";
 

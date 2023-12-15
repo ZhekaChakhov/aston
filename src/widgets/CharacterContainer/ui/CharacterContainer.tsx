@@ -10,6 +10,7 @@ export const CharacterContainer = () => {
     error,
     isLoading,
   } = characterApi.useGetCharactersQuery(2);
+
   return (
     <div className="w-full my-8">
       {isLoading && (

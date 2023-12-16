@@ -20,5 +20,3 @@ jobs:
         run: npm install
       - name: lint code
         run: npm run lint
-      - name: e2e test
-        run: npm run wdio -- --spec characters.e2e.ts

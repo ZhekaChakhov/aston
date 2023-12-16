@@ -1,5 +1,10 @@
-import React from "react";
+// import React from "react";
+import { Form } from "src/widgets/Form";
 
 export const RegisterPage = () => {
-  return <div>RegisterPage</div>;
+  return (
+    <div>
+      <Form text="Sign Up" />
+    </div>
+  );
 };

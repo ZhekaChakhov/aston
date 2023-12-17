@@ -1,63 +1,48 @@
 /// <reference types="vite-plugin-svgr/client" />
 
+import type { ReactNode } from "react";
 // import React from "react";
-import type { PropsWithChildren } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { NavLinks } from "src/entities/NavLinks";
 import ReactLogo from "src/shared/assets/icons/Rick_and_Morty.svg?react";
+import { Button } from "src/shared/ui/Button/Button";
 
-const navlinks = [
-  {
-    id: 1,
-    title: "Главная",
-    link: "/",
-  },
-  {
-    id: 2,
-    title: "Поиск",
-    link: "/search",
-  },
-  {
-    id: 3,
-    title: "Избранное",
-    link: "/favorites",
-  },
-  {
-    id: 4,
-    title: "История",
-    link: "/history",
-  },
-];
+interface Props {
+  isAuth: boolean;
+  onClick?: () => void;
+  children?: ReactNode;
+}
 
-export const Layout = ({ children }: PropsWithChildren) => {
+export const Layout = ({ isAuth, onClick, children }: Props) => {
+  const buttonStyle =
+    "p-3 inline-block font-semibold bg-red-100 border-4 border-red-200 box-border";
   return (
     <div>
-      <header className="shadow-sm bg-white">
+      <div className="shadow-sm bg-white">
         <nav className="container p-7 text-center">
           <Link to="/">
             <ReactLogo className="w-1/4 h-1/3 mx-auto" />
           </Link>
         </nav>
-      </header>
-      <div className="container mx-auto p-4 flex justify-between border-t-2">
-        <ul className="flex gap-4 text-2xl">
-          {navlinks.map((link) => (
-            <li key={link.id}>
-              <NavLink
-                to={link.link}
-                className={({ isActive }) =>
-                  [
-                    isActive
-                      ? "active p-3 rounded-md inline-block font-bold"
-                      : "p-3 rounded-md inline-block font-bold",
-                  ].join(" ")
-                }
-              >
-                {link.title}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
       </div>
+      <div className="flex justify-between border-t-2">
+        <NavLinks isAuth={isAuth} />
+        <div className="flex justify-end p-4 w-1/3 gap-4 text-2xl">
+          {isAuth ? (
+            <Button onClick={onClick} className={buttonStyle} text="Выйти" />
+          ) : (
+            <>
+              <Link to="/login">
+                <Button className={buttonStyle} text="Логин" />
+              </Link>
+              <Link to="/register">
+                <Button className={buttonStyle} text="Регистрация" />
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+
       <div className="container mx-auto p-6 bg-gray-50">{children}</div>
     </div>
   );

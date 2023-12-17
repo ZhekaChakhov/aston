@@ -1,15 +1,27 @@
 import { Route, Routes } from "react-router";
-import { CharacterPage } from "src/pages/CharacterPage";
 import { MainPage } from "src/pages/MainPage";
 
-export const AppRouter = () => {
-  return (
+import { privateRoutes } from "../config/routes/private";
+import { publicRoutes } from "../config/routes/public";
+
+interface Props {
+  isAuth: boolean;
+}
+
+export const AppRouter = ({ isAuth }: Props) => {
+  return isAuth ? (
     <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/search" element={<MainPage />} />
-      <Route path="/history" element={<MainPage />} />
-      <Route path="/favorites" element={<MainPage />} />
-      <Route path="/character/:id" element={<CharacterPage />} />;
+      {privateRoutes.map(({ path, Component }) => (
+        <Route path={path} element={Component} key={path} />
+      ))}
+      <Route path="*" element={<MainPage />} />
+    </Routes>
+  ) : (
+    <Routes>
+      {publicRoutes.map(({ path, Component }) => (
+        <Route path={path} element={Component} key={path} />
+      ))}
+      <Route path="*" element={<MainPage />} />
     </Routes>
   );
 };

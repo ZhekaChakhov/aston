@@ -1,6 +1,13 @@
-// import React from "react";
-import { CharacterList } from "src/widgets/CharacterList";
+import React from "react";
+import { CharacterContainer } from "src/widgets/CharacterContainer";
+import { Pagination } from "src/widgets/Pagination";
 
 export const MainPage = () => {
-  return <CharacterList />;
+  const [page, setPage] = React.useState(1);
+  return (
+    <>
+      <Pagination page={page} setPage={setPage} />
+      <CharacterContainer page={page} />
+    </>
+  );
 };

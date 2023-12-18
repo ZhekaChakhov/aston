@@ -1,15 +1,13 @@
-import React from "react";
+import { useAuthCheck } from "src/shared/lib/useAuthCheck";
 import { Layout } from "src/widgets/Layout";
 
 import { AppRouter } from "./providers/router";
 
 export const App = () => {
-  const [isAuth, setIsAuth] = React.useState(false);
+  useAuthCheck();
   return (
-    <Layout isAuth={isAuth} onClick={() => setIsAuth(!isAuth)}>
-      <AppRouter isAuth={isAuth} />
+    <Layout>
+      <AppRouter />
     </Layout>
   );
 };
-
-// TODO: вынести логику переключателя isAuth из App

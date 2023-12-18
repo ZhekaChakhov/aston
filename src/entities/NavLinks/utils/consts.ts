@@ -1,12 +1,12 @@
 export const publicLinks = [
   {
     id: 1,
-    title: "Главная",
+    title: "Home",
     link: "/",
   },
   {
     id: 2,
-    title: "Поиск",
+    title: "Search",
     link: "/search",
   },
 ];
@@ -14,22 +14,22 @@ export const publicLinks = [
 export const privateLinks = [
   {
     id: 1,
-    title: "Главная",
+    title: "Home",
     link: "/",
   },
   {
     id: 2,
-    title: "Поиск",
+    title: "Search",
     link: "/search",
   },
   {
     id: 3,
-    title: "Избранное",
+    title: "Favorites",
     link: "/favorites",
   },
   {
     id: 4,
-    title: "История",
+    title: "History",
     link: "/history",
   },
 ];

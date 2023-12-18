@@ -14,8 +14,7 @@ interface Props {
 }
 
 export const Layout = ({ isAuth, onClick, children }: Props) => {
-  const buttonStyle =
-    "p-3 inline-block font-semibold bg-red-100 border-4 border-red-200 box-border";
+  const buttonStyle = "p-3 inline-block font-semibold border-4 box-border";
   return (
     <div>
       <div className="shadow-sm bg-white">
@@ -29,14 +28,24 @@ export const Layout = ({ isAuth, onClick, children }: Props) => {
         <NavLinks isAuth={isAuth} />
         <div className="flex justify-end p-4 w-1/3 gap-4 text-2xl">
           {isAuth ? (
-            <Button onClick={onClick} className={buttonStyle} text="Выйти" />
+            <Button
+              onClick={onClick}
+              className={buttonStyle + " bg-red-100 border-red-200"}
+              text="Log Out"
+            />
           ) : (
             <>
               <Link to="/login">
-                <Button className={buttonStyle} text="Логин" />
+                <Button
+                  className={buttonStyle + " bg-blue-100 border-blue-200"}
+                  text="Log In"
+                />
               </Link>
               <Link to="/register">
-                <Button className={buttonStyle} text="Регистрация" />
+                <Button
+                  className={buttonStyle + " bg-green-100 border-green-200"}
+                  text="Sign Up"
+                />
               </Link>
             </>
           )}

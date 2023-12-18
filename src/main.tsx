@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import { App } from "src/app";
 import { setupStore } from "src/app/providers/store";
 
+import "./firebase";
+
 import "src/app/index.css";
 
 const store = setupStore();

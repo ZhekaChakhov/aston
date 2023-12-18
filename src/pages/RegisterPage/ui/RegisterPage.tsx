@@ -1,5 +1,9 @@
-import React from "react";
+import { Register } from "src/features/Auth";
 
 export const RegisterPage = () => {
-  return <div>RegisterPage</div>;
+  return (
+    <div>
+      <Register />
+    </div>
+  );
 };

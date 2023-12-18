@@ -1,5 +1,9 @@
-import React from "react";
+import { Login } from "src/features/Auth";
 
 export const LoginPage = () => {
-  return <div>LoginPage</div>;
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 };

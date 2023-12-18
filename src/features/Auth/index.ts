@@ -1,5 +1,3 @@
-import authMiddleware from "./model/services/authMiddleWare";
-import { Login } from "./ui/Login/Login";
-import { SignUp } from "./ui/Register/Register";
-
-export { authMiddleware, Login, SignUp };
+export { authMiddleware } from "./model/services/authMiddleWare";
+export { Login } from "./ui/Login/Login";
+export { Register } from "./ui/Register/Register";

@@ -4,7 +4,7 @@ import { Middleware } from "redux";
 import { login, logout, signup } from "../actions/authThunk";
 import { authActions } from "../slices/authSlice";
 
-const authMiddleware: Middleware =
+export const authMiddleware: Middleware =
   (store: any) => (next: any) => (action: any) => {
     const actonPending =
       action.type === login.pending.type ||
@@ -29,9 +29,7 @@ const authMiddleware: Middleware =
       console.error("An error occurred during authentication:", action.error);
     }
 
-    console.log("Action dispatched:ACTION", action);
+    // console.log("Action dispatched:ACTION", action);
 
     return next(action);
   };
-
-export default authMiddleware;

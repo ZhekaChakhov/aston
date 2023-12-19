@@ -6,30 +6,36 @@ import { authActions } from "../slices/authSlice";
 
 export const authMiddleware: Middleware =
   (store: any) => (next: any) => (action: any) => {
-    const actonPending =
-      action.type === login.pending.type ||
-      action.type === signup.pending.type ||
-      action.type === logout.pending.type;
+    const actionPending = [
+      login.pending.type,
+      signup.pending.type,
+      logout.pending.type,
+    ].includes(action.type);
 
-    const actionFulfilled =
-      action.type === login.fulfilled.type ||
-      action.type === signup.fulfilled.type ||
-      action.type === logout.fulfilled.type;
+    const actionFulfilled = [
+      login.fulfilled.type,
+      signup.fulfilled.type,
+      logout.fulfilled.type,
+    ].includes(action.type);
 
-    const actionRejected =
-      action.type === login.rejected.type ||
-      action.type === signup.rejected.type ||
-      action.type === logout.rejected.type;
+    const actionRejected = [
+      login.rejected.type,
+      signup.rejected.type,
+      logout.rejected.type,
+    ].includes(action.type);
 
-    if (actonPending) {
+    if (actionPending) {
+      console.log(action.type);
       store.dispatch(authActions.setUser({ uid: null }));
     } else if (actionFulfilled) {
+      console.log(action.type);
       if (action.payload) {
         store.dispatch(authActions.setUser({ uid: action.payload.uid }));
       } else {
         store.dispatch(authActions.setUser({ uid: null }));
       }
     } else if (actionRejected) {
+      console.log(action.type);
       console.error("An error occurred during authentication:", action.error);
     }
 

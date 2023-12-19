@@ -1,6 +1,4 @@
 /// <reference types="vite-plugin-svgr/client" />
-
-// import React from "react";
 import { NavLink } from "react-router-dom";
 
 import { privateLinks, publicLinks } from "../utils/consts";

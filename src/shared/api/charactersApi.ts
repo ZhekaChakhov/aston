@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// import { Character } from "../models/Character";
 import { CharacterData } from "../models/Character";
 
 const baseUrl = "https://rickandmortyapi.com/api";

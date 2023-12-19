@@ -1,5 +1,3 @@
-// import React from "react";
-
 import { useGetByIdQuery } from "src/shared/api/charactersApi";
 import { Loader } from "src/shared/ui/Loader/Loader";
 

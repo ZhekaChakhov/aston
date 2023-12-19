@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-// import { Button } from "src/shared/ui/Button/Button";
 
 export interface Data {
   email: string;

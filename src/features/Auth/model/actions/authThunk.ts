@@ -9,14 +9,14 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { auth } from "../../../../firebase";
 import { authActions } from "../slices/authSlice";
 
-interface Data {
+interface Credentials {
   email: string;
   password: string;
 }
 
 export const login = createAsyncThunk(
   "auth/login",
-  async ({ email, password }: Data, thunkAPI) => {
+  async ({ email, password }: Credentials, thunkAPI) => {
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
       return response.user;
@@ -28,7 +28,7 @@ export const login = createAsyncThunk(
 
 export const signup = createAsyncThunk(
   "auth/signup",
-  async ({ email, password }: Data, thunkAPI) => {
+  async ({ email, password }: Credentials, thunkAPI) => {
     try {
       const response = await createUserWithEmailAndPassword(
         auth,
@@ -53,7 +53,7 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 
 export const authCheck = createAsyncThunk(
   "auth/check",
-   
+
   (_, thunkAPI) => {
     try {
       onAuthStateChanged(auth, async (user) => {

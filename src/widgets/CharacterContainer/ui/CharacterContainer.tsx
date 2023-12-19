@@ -1,4 +1,3 @@
-// import React from "react";
 import { CharacterCard } from "src/entities/CharacterCard";
 import { characterApi } from "src/shared/api/charactersApi";
 import { Character } from "src/shared/models/Character";

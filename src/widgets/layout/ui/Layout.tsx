@@ -8,6 +8,7 @@ import {
 import { NavLinks } from "src/entities/NavLinks";
 import { logout } from "src/features/Auth/model";
 import { getUser } from "src/features/Auth/model/selector/getUser";
+import { setUserToLocalStorage } from "src/features/Auth/model/selector/setUserToLocalStorage";
 import ReactLogo from "src/shared/assets/icons/Rick_and_Morty.svg?react";
 import { Button } from "src/shared/ui/Button/Button";
 
@@ -24,7 +25,7 @@ const getCurrentUser = (): string | null => {
   }
 };
 
-const removeToken = (): void => {
+const removeItem = (): void => {
   localStorage.removeItem("currentUser");
 };
 
@@ -33,19 +34,19 @@ export const Layout = ({ children }: Props) => {
 
   let user = getCurrentUser();
 
-  const { uid } = useAppSelector(getUser);
+  useAppSelector(getUser);
+  useAppSelector(setUserToLocalStorage);
 
   const handleLogout = async () => {
     try {
       await dispatch(logout());
-      removeToken();
+      removeItem();
       user = null;
     } catch (err) {
       /* eslint-disable no-console*/
       console.log(err);
     }
   };
-  //
 
   return (
     <div>
@@ -58,9 +59,9 @@ export const Layout = ({ children }: Props) => {
       </div>
 
       <div className="flex justify-between border-t-2">
-        <NavLinks isAuth={!!(uid || user!)} />
+        <NavLinks isAuth={!!user!} />
         <div className="flex justify-end p-4 w-1/3 gap-4 text-2xl">
-          {uid || user! ? (
+          {user! ? (
             <Button
               onClick={handleLogout}
               className={"bg-red-100 border-red-200"}

@@ -53,7 +53,7 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 
 export const authCheck = createAsyncThunk(
   "auth/check",
-  // eslint-disable-next-line consistent-return
+   
   (_, thunkAPI) => {
     try {
       onAuthStateChanged(auth, async (user) => {

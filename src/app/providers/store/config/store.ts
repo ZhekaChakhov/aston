@@ -12,7 +12,7 @@ export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware()
+      getDefaultMiddleware({ serializableCheck: false })
         .concat(characterApi.middleware)
         .concat(authMiddleware),
   });

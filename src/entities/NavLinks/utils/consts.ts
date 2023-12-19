@@ -1,7 +1,7 @@
 export const publicLinks = [
   {
     id: 1,
-    title: "Main",
+    title: "Home",
     link: "/",
   },
   {
@@ -14,7 +14,7 @@ export const publicLinks = [
 export const privateLinks = [
   {
     id: 1,
-    title: "Main",
+    title: "Home",
     link: "/",
   },
   {

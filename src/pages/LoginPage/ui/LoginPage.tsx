@@ -1,10 +1,9 @@
-// import React from "react";
-import { Form } from "src/widgets/Form";
+import { Login } from "src/features/Auth";
 
 export const LoginPage = () => {
   return (
     <div>
-      <Form text="Login" />
+      <Login />
     </div>
   );
 };

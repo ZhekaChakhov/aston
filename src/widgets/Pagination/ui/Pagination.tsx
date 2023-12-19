@@ -16,7 +16,7 @@ export const Pagination = (props: Props) => {
       </div>
       <div className="flex justify-end">
         <button
-          className={page === 1 ? "text-gray-800 mr-4" : "text-blue-600 mr-4"}
+          className={`mr-4 ${page === 1 ? "text-gray-800" : "text-blue-600"}`}
           type="button"
           onClick={() => setPage(page - 1)}
           disabled={page === 1}

@@ -1,5 +1,4 @@
 /// <reference types="vite-plugin-svgr/client" />
-
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -16,18 +15,38 @@ interface Props {
   children?: ReactNode;
 }
 
-export const Layout = ({ children }: Props) => {
-  const { uid } = useAppSelector(getUser);
+const getCurrentUser = (): string | null => {
+  const userStr = localStorage.getItem("currentUser");
+  try {
+    return JSON.parse(userStr!).uid;
+  } catch (error) {
+    return null;
+  }
+};
 
+const removeToken = (): void => {
+  localStorage.removeItem("currentUser");
+};
+
+export const Layout = ({ children }: Props) => {
   const dispatch = useAppDispatch();
+
+  let user = getCurrentUser();
+
+  const { uid } = useAppSelector(getUser);
 
   const handleLogout = async () => {
     try {
       await dispatch(logout());
+      removeToken();
+      user = null;
     } catch (err) {
-      throw new Error(err as string);
+      /* eslint-disable no-console*/
+      console.log(err);
     }
   };
+  //
+
   return (
     <div>
       <div className="shadow-sm bg-white">
@@ -37,10 +56,11 @@ export const Layout = ({ children }: Props) => {
           </Link>
         </nav>
       </div>
+
       <div className="flex justify-between border-t-2">
-        <NavLinks isAuth={!!uid!} />
+        <NavLinks isAuth={!!(uid || user!)} />
         <div className="flex justify-end p-4 w-1/3 gap-4 text-2xl">
-          {uid! ? (
+          {uid || user! ? (
             <Button
               onClick={handleLogout}
               className={"bg-red-100 border-red-200"}

@@ -8,7 +8,11 @@ import { useDebounce } from "src/shared/lib/useDebounce";
 import { Suggest } from "src/widgets/Suggest";
 
 export const SearchBar = () => {
-  const [query, setQuery] = React.useState("");
+  const [value] = useSearchParams();
+  const [query, setQuery] = React.useState(
+    value.get("name") ? value.get("name") : "",
+  );
+
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const debounce = useDebounce(query, 500);
@@ -16,14 +20,6 @@ export const SearchBar = () => {
 
   const [isFocused, setIsFocused] = React.useState(false);
   const showSuggest = !!debounce && isFocused;
-
-  const [value] = useSearchParams();
-
-  React.useEffect(() => {
-    if (value.get("name")) {
-      setQuery(value.get("name") as string);
-    }
-  }, []);
 
   const handleSearch = () => {
     if (debounce) {
@@ -69,7 +65,7 @@ export const SearchBar = () => {
           focus:ring-blue-500 focus:border-blue-500"
           placeholder="Search characters..."
           required={true}
-          value={query}
+          value={query as string}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyPress}
           onFocus={() => {

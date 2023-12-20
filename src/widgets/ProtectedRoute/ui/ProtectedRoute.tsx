@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
+import PropTypes from "prop-types";
 import { useAppSelector } from "src/app/providers/store/config/hooks";
 import { getUser } from "src/features/Auth/model/selector/getUser";
 
@@ -19,4 +20,8 @@ export const ProtectedRoute = (props: Props) => {
   }
 
   return <Outlet />;
+};
+
+ProtectedRoute.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
 };

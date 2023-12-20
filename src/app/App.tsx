@@ -11,3 +11,5 @@ export const App = () => {
     </Layout>
   );
 };
+
+// TODO: удалить "react-firebase-hooks"

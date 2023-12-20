@@ -11,7 +11,7 @@ export const CharacterCard = ({ character }: Props) => {
       <img
         src={character.image}
         alt={`${character.name} Card`}
-        className="w-72 mx-0 my-auto"
+        className="w-72 mx-auto my-auto"
       />
       <NavLink to={`/character/${character.id}`}>
         <p className="font-bold text-green-500 m-1 truncate text-2xl">

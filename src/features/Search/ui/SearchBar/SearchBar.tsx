@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import { useSearchParams } from "react-router-dom";
 import { useAppDispatch } from "src/app/providers/store/config/hooks";
 import { searchActions } from "src/features/Search/model/slices/searchSlice";
 import { useGetByNameQuery } from "src/shared/api/charactersApi";
@@ -13,9 +14,21 @@ export const SearchBar = () => {
   const debounce = useDebounce(query, 500);
   const { data } = useGetByNameQuery(debounce);
 
+  const [isFocused, setIsFocused] = React.useState(false);
+  const showSuggest = !!debounce && isFocused;
+
+  const [value] = useSearchParams();
+
+  React.useEffect(() => {
+    if (value.get("name")) {
+      setQuery(value.get("name") as string);
+    }
+  }, []);
+
   const handleSearch = () => {
     if (debounce) {
       dispatch(searchActions.setResults(data.results));
+      setIsFocused(false);
       setQuery("");
       navigate(`/search?name=${debounce}`);
     }
@@ -59,6 +72,14 @@ export const SearchBar = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyPress}
+          onFocus={() => {
+            setIsFocused(true);
+          }}
+          onBlur={() => {
+            setTimeout(() => {
+              setIsFocused(false);
+            }, 200);
+          }}
         />
         <button
           className="
@@ -71,8 +92,8 @@ export const SearchBar = () => {
           Search
         </button>
       </div>
-      {debounce && data.results && (
-        <div className="relative" onClick={() => setQuery("")}>
+      {showSuggest && data.results && (
+        <div className="relative">
           <Suggest characters={data.results} />
         </div>
       )}

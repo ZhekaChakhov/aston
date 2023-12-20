@@ -9,7 +9,6 @@ import { NavLinks } from "src/entities/NavLinks";
 import { logout } from "src/features/Auth/model";
 import { getUser } from "src/features/Auth/model/selector/getUser";
 import { setUserToLocalStorage } from "src/features/Auth/model/selector/setUserToLocalStorage";
-import { SearchBar } from "src/features/Search";
 import ReactLogo from "src/shared/assets/icons/Rick_and_Morty.svg?react";
 import { Button } from "src/shared/ui/Button/Button";
 
@@ -85,9 +84,6 @@ export const Layout = ({ children }: Props) => {
             </>
           )}
         </div>
-      </div>
-      <div>
-        <SearchBar />
       </div>
 
       <div className="container mx-auto p-6 bg-gray-50">{children}</div>

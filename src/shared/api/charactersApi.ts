@@ -20,7 +20,13 @@ export const characterApi = createApi({
         url: `${baseUrl}/character/${id}`,
       }),
     }),
+    getByName: build.query({
+      query: (name) => ({
+        url: `${baseUrl}/character/?name=${name}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetCharactersQuery, useGetByIdQuery } = characterApi;
+export const { useGetCharactersQuery, useGetByIdQuery, useGetByNameQuery } =
+  characterApi;

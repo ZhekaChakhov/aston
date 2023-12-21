@@ -1,2 +1,2 @@
 export { AddToFavorite } from "./ui/AddToFavorite/AddToFavorite";
-export { Favorite } from "./ui/Favorite/Favorite";
+export { Favorites } from "./ui/Favorites/Favorites";

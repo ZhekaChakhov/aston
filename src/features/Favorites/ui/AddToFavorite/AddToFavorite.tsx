@@ -3,6 +3,8 @@ import { useGetByIdQuery } from "src/shared/api/charactersApi";
 import { favoritesApi } from "src/shared/api/favoritesApi";
 import { Character } from "src/shared/models/Character";
 
+// TODO: при загрузке страницы избранные персонажи не сохраняются
+
 export const AddToFavorite = (prop: { id: number }) => {
   const [addCharacterToFavorites] = favoritesApi.useAddCharacterMutation();
   const [removeCharacterFromFavorites] =

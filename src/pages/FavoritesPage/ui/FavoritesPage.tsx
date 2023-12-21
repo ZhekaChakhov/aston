@@ -1,3 +1,9 @@
+import { Favorites } from "src/features/Favorites";
+
 export const FavoritesPage = () => {
-  return <div>FavoritesPage</div>;
+  return (
+    <div>
+      <Favorites />
+    </div>
+  );
 };

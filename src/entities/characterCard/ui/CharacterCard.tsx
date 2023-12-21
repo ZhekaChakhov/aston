@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { AddToFavorite } from "src/features/Favorites";
 import { Character } from "src/shared/models/Character";
 
 interface Props {
@@ -21,6 +22,7 @@ export const CharacterCard = ({ character }: Props) => {
       <p className="font-bold text-gray-500 mb-1 truncate text-xl">
         {character.species}
       </p>
+      <AddToFavorite id={character.id} />
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import { useAppSelector } from "src/app/providers/store/config/hooks";
+import { getUser } from "src/features/Auth/model/selector/getUser";
 import { AddToFavorite } from "src/features/Favorites";
 import { useGetByIdQuery } from "src/shared/api/charactersApi";
 import { favoritesApi } from "src/shared/api/favoritesApi";
@@ -5,6 +7,7 @@ import { Loader } from "src/shared/ui/Loader/Loader";
 
 export const CharacterDetails = (prop: { id: number }) => {
   const { data: character } = useGetByIdQuery(prop.id);
+  const { uid } = useAppSelector(getUser);
 
   const { data: favoriteCharacters, isLoading } =
     favoritesApi.useGetFavoriteCharactersQuery();
@@ -14,7 +17,7 @@ export const CharacterDetails = (prop: { id: number }) => {
 
   return (
     <div className="w-full my-8">
-      {isLoading ? (
+      {uid && isLoading ? (
         <div className="text-center">
           <Loader />
         </div>
@@ -36,13 +39,15 @@ export const CharacterDetails = (prop: { id: number }) => {
                   <p className="text-3xl mb-3 text-blue-600 font-semiboldbold">
                     Species: {character.species}
                   </p>
-                  <p className="">
-                    <AddToFavorite
-                      id={character.id}
-                      size={50}
-                      isFavorite={!!isFavorite}
-                    />
-                  </p>
+                  {uid && (
+                    <div className="">
+                      <AddToFavorite
+                        id={character.id}
+                        size={50}
+                        isFavorite={!!isFavorite}
+                      />
+                    </div>
+                  )}
                 </div>
               </>
             )}

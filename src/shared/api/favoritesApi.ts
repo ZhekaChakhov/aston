@@ -26,10 +26,12 @@ export const favoritesApi = createApi({
       transformResponse: (data: Favorite): Character[] => {
         let charactersFromDB: Character[] = [];
         if (data) {
-          charactersFromDB = Object.entries(data).map((item) => ({
-            idDB: item[0],
-            ...item[1],
-          }));
+          charactersFromDB = Object.entries(data).map((item) => {
+            return {
+              ...item[1],
+              idDB: item[0],
+            };
+          });
         }
         return charactersFromDB;
       },

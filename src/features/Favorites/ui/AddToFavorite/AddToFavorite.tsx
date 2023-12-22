@@ -5,19 +5,19 @@ import { Character } from "src/shared/models/Character";
 
 interface Props {
   id: number;
-  isFavorite?: boolean;
+  isFavorite: boolean;
   size: number;
 }
 
-export const AddToFavorite = (props: Props) => {
+export const AddToFavorite = ({ id, isFavorite, size }: Props) => {
   const [addCharacterToFavorites] = favoritesApi.useAddCharacterMutation();
   const [removeCharacterFromFavorites] =
     favoritesApi.useRemoveCharacterMutation();
 
+  const { data: oneCharacter } = useGetByIdQuery(id);
+
   const { data: favoriteCharacters } =
     favoritesApi.useGetFavoriteCharactersQuery();
-
-  const { data: oneCharacter } = useGetByIdQuery(props.id);
 
   const character: Character = {
     id: oneCharacter?.id,
@@ -26,34 +26,27 @@ export const AddToFavorite = (props: Props) => {
     species: oneCharacter?.species,
   };
 
+  const favoriteId = favoriteCharacters?.find(
+    (item) => item?.id === character.id,
+  )?.idDB;
+
   const addCharacter = () => {
     addCharacterToFavorites(character);
   };
 
-  const isFavorite = favoriteCharacters?.find((item) => item?.id === props.id)
-    ?.idDB;
-
   const removeCharacter = () => {
-    removeCharacterFromFavorites(isFavorite);
+    removeCharacterFromFavorites(favoriteId);
   };
 
   return (
     <div className="">
-      {!isFavorite && !props.isFavorite ? (
+      {!isFavorite ? (
         <button type="button" onClick={addCharacter}>
-          <Icon
-            icon="pepicons-pencil:heart"
-            width={props.size}
-            height={props.size}
-          />
+          <Icon icon="pepicons-pencil:heart" width={size} height={size} />
         </button>
       ) : (
         <button type="button" onClick={removeCharacter}>
-          <Icon
-            icon="pepicons-pencil:heart-off"
-            width={props.size}
-            height={props.size}
-          />
+          <Icon icon="pepicons-pencil:heart-off" width={size} height={size} />
         </button>
       )}
     </div>

@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useAppSelector } from "src/app/providers/store/config/hooks";
-import { getUser } from "src/features/Auth/model/selector/getUser";
+import { useAuth } from "src/shared/lib/useAuth";
+import { Loader } from "src/shared/ui/Loader/Loader";
 
 interface Props {
   isAuthenticated: boolean;
@@ -9,13 +9,17 @@ interface Props {
 
 export const ProtectedRoute = (props: Props) => {
   const { isAuthenticated } = props;
-  const { uid } = useAppSelector(getUser);
+  const { isAuth, isLoading } = useAuth();
 
-  if (isAuthenticated && !uid) {
+  if (!isLoading) {
+    return <Loader />;
+  }
+
+  if (isAuthenticated && !isAuth) {
     return <Navigate to="/login" />;
   }
 
-  if (!isAuthenticated && uid) {
+  if (!isAuthenticated && isAuth) {
     return <Navigate to="/" />;
   }
 

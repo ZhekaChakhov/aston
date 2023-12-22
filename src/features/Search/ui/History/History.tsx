@@ -24,12 +24,12 @@ export const History = () => {
   ) : (
     <ul className="mt-8 px-7 flex justify-center items-center flex-col">
       {!history?.length ? (
-        <p className="mt-10 text-xl text-center">
+        <div className="mt-10 text-xl text-center">
           <p>History is empty</p>
           <Link className="underline text-green-500" to="/">
             Back to main
           </Link>
-        </p>
+        </div>
       ) : (
         history.map((item) => <HistoryLink key={item.id} item={item} />)
       )}

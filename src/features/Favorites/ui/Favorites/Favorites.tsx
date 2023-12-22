@@ -12,7 +12,7 @@ export const Favorites = () => {
   const [isRefetched, setIsRefetched] = useState(false);
 
   useEffect(() => {
-    if (history) {
+    if (favoriteCharacters) {
       refetch();
     }
     const timer = setTimeout(() => {

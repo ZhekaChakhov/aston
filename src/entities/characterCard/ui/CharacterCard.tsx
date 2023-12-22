@@ -31,7 +31,7 @@ export const CharacterCard = ({ character }: Props) => {
             alt={`${character.name} Card`}
             className="w-72 mx-auto my-auto"
           />
-          <Link to={`/character/${character.id}`}>
+          <Link to={`/${character.id}`}>
             <p className="font-bold text-green-500 m-1 truncate text-2xl">
               {character.name}
             </p>
@@ -39,7 +39,11 @@ export const CharacterCard = ({ character }: Props) => {
           <p className="font-bold text-gray-500 mb-1 truncate text-xl">
             {character.species}
           </p>
-          <AddToFavorite id={character.id} isFavorite={!!isFavorite} />
+          <AddToFavorite
+            id={character.id}
+            isFavorite={!!isFavorite}
+            size={25}
+          />
         </>
       )}
     </div>

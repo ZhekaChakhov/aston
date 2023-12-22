@@ -19,7 +19,7 @@ export const CharacterCard = ({ character, isFavorite }: Props) => {
         alt={`${character.name} Card`}
         className="w-72 mx-auto my-auto"
       />
-      <Link to={`/${character.id}`}>
+      <Link to={`/character/${character.id}`}>
         <p className="font-bold text-green-500 m-1 truncate text-2xl">
           {character.name}
         </p>

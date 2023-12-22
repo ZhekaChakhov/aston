@@ -25,7 +25,7 @@ export const AppRouter = () => {
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/history" element={<HistoryPage />} />
         </Route>
-        <Route path="/:id" element={<CharacterPage />} />
+        <Route path="/character/:id" element={<CharacterPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/" element={<MainPage />} />
         <Route path="*" element={<NotFoundPage />} />

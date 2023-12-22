@@ -1,4 +1,3 @@
-// import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -7,14 +6,18 @@ import { setupStore } from "src/app/providers/store";
 
 import "./firebase";
 
+import ErrorBoundary from "./app/providers/ErrorBoundary/ui/ErrorBoundary";
+
 import "src/app/index.css";
 
 const store = setupStore();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ErrorBoundary>
   </BrowserRouter>,
 );

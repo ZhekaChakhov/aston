@@ -18,7 +18,7 @@ export const Suggest = ({ characters }: Props) => {
         <Link
           className="p-2 flex items-center text-black border-2 hover:bg-gray-100"
           key={character.image}
-          to={`/${character.id}`}
+          to={`character/${character.id}`}
         >
           <img
             className="pr-1 w-20 h-24"

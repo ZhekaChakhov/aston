@@ -1,3 +1,13 @@
+import { Link } from "react-router-dom";
+import { Button } from "src/shared/ui/Button/Button";
+
 export const NotFoundPage = () => {
-  return <div>404 Not Found</div>;
+  return (
+    <div className="flex items-center justify-center flex-col">
+      <div>404 Not Found</div>
+      <Link to="/">
+        <Button className="border-green-400 bg-green-50" text="Return Home" />
+      </Link>
+    </div>
+  );
 };

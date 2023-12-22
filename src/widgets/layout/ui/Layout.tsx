@@ -10,24 +10,13 @@ import { logout } from "src/features/Auth/model";
 import { getUser } from "src/features/Auth/model/selector/getUser";
 import { setUserToLocalStorage } from "src/features/Auth/model/selector/setUserToLocalStorage";
 import ReactLogo from "src/shared/assets/icons/Rick_and_Morty.svg?react";
+import { getCurrentUser } from "src/shared/helpers/getCurrentUser";
+import { removeItem } from "src/shared/helpers/removeItem";
 import { Button } from "src/shared/ui/Button/Button";
 
 interface Props {
   children?: ReactNode;
 }
-
-const getCurrentUser = (): string | null => {
-  const userStr = localStorage.getItem("currentUser");
-  try {
-    return JSON.parse(userStr!).uid;
-  } catch (error) {
-    return null;
-  }
-};
-
-const removeItem = (): void => {
-  localStorage.removeItem("currentUser");
-};
 
 export const Layout = ({ children }: Props) => {
   const dispatch = useAppDispatch();

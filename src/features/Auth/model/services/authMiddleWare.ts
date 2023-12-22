@@ -25,17 +25,14 @@ export const authMiddleware: Middleware =
     ].includes(action.type);
 
     if (actionPending) {
-      console.log(action.type);
       store.dispatch(authActions.setUser({ uid: null }));
     } else if (actionFulfilled) {
-      console.log(action.type);
       if (action.payload) {
         store.dispatch(authActions.setUser({ uid: action.payload.uid }));
       } else {
         store.dispatch(authActions.setUser({ uid: null }));
       }
     } else if (actionRejected) {
-      console.log(action.type);
       console.error("An error occurred during authentication:", action.error);
     }
 

@@ -1,5 +1,6 @@
 import { CharacterCard } from "src/entities/CharacterCard";
 import { characterApi } from "src/shared/api/charactersApi";
+import { favoritesApi } from "src/shared/api/favoritesApi";
 import { Character } from "src/shared/models/Character";
 import { Loader } from "src/shared/ui/Loader/Loader";
 
@@ -10,9 +11,12 @@ export const CharacterContainer = (props: { page: number }) => {
     isLoading,
   } = characterApi.useGetCharactersQuery(props.page);
 
+  const { data: favoriteCharacters, isLoading: isFavoriteLoading } =
+    favoritesApi.useGetFavoriteCharactersQuery();
+
   return (
     <div id="character-container" className="w-full my-8">
-      {isLoading && (
+      {(isLoading || isFavoriteLoading) && (
         <div className="text-center">
           <Loader />
         </div>
@@ -22,7 +26,14 @@ export const CharacterContainer = (props: { page: number }) => {
         {characters?.results &&
           characters.results.map((character: Character) => (
             <div key={character.id} className="">
-              <CharacterCard character={character} />
+              <CharacterCard
+                character={character}
+                isFavorite={
+                  !!favoriteCharacters?.find(
+                    (item) => item?.id === character.id,
+                  )?.idDB
+                }
+              />
             </div>
           ))}
       </div>

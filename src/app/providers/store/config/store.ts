@@ -3,11 +3,13 @@ import { authMiddleware } from "src/features/Auth";
 import { authReducer } from "src/features/Auth/model/slices/authSlice";
 import { searchReducer } from "src/features/Search/model/slices/searchSlice";
 import { characterApi } from "src/shared/api/charactersApi";
+import { favoritesApi } from "src/shared/api/favoritesApi";
 
 const rootReducer = combineReducers({
   auth: authReducer,
   search: searchReducer,
   [characterApi.reducerPath]: characterApi.reducer,
+  [favoritesApi.reducerPath]: favoritesApi.reducer,
 });
 
 export const setupStore = () => {
@@ -16,7 +18,8 @@ export const setupStore = () => {
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({ serializableCheck: false })
         .concat(characterApi.middleware)
-        .concat(authMiddleware),
+        .concat(authMiddleware)
+        .concat(favoritesApi.middleware),
   });
 };
 

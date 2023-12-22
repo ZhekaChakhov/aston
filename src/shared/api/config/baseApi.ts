@@ -32,6 +32,8 @@ export const dynamicBaseQuery: BaseQueryFn<
     };
   }
 
+  // console.log(uid);
+
   const urlEnd = typeof args === "string" ? args : args.url;
   const adjustedUrl = `${uid}/${urlEnd}`;
   const adjustedArgs =

@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { useAppDispatch } from "src/app/providers/store/config/hooks";
 import { searchActions } from "src/features/Search/model/slices/searchSlice";
 import { useGetByNameQuery } from "src/shared/api/charactersApi";
+import { historyApi } from "src/shared/api/historyApi";
 import { useDebounce } from "src/shared/lib/useDebounce";
 import { Suggest } from "src/widgets/Suggest";
 
@@ -12,7 +13,7 @@ export const SearchBar = () => {
   const [query, setQuery] = React.useState(
     value.get("name") ? value.get("name") : "",
   );
-
+  const [addHistory] = historyApi.useAddHistoryMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const debounce = useDebounce(query, 500);
@@ -26,6 +27,7 @@ export const SearchBar = () => {
       dispatch(searchActions.setResults(data.results));
       setIsFocused(false);
       setQuery("");
+      addHistory({ name: debounce });
       navigate(`/search?name=${debounce}`);
     }
   };

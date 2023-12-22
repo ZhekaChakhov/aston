@@ -1,3 +1,9 @@
+import { History } from "src/features/Search";
+
 export const HistoryPage = () => {
-  return <div>HistoryPage</div>;
+  return (
+    <div>
+      <History />
+    </div>
+  );
 };

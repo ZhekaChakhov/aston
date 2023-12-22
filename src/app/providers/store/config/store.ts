@@ -4,12 +4,14 @@ import { authReducer } from "src/features/Auth/model/slices/authSlice";
 import { searchReducer } from "src/features/Search/model/slices/searchSlice";
 import { characterApi } from "src/shared/api/charactersApi";
 import { favoritesApi } from "src/shared/api/favoritesApi";
+import { historyApi } from "src/shared/api/historyApi";
 
 const rootReducer = combineReducers({
   auth: authReducer,
   search: searchReducer,
   [characterApi.reducerPath]: characterApi.reducer,
   [favoritesApi.reducerPath]: favoritesApi.reducer,
+  [historyApi.reducerPath]: historyApi.reducer,
 });
 
 export const setupStore = () => {
@@ -18,8 +20,9 @@ export const setupStore = () => {
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({ serializableCheck: false })
         .concat(characterApi.middleware)
-        .concat(authMiddleware)
-        .concat(favoritesApi.middleware),
+        .concat(favoritesApi.middleware)
+        .concat(historyApi.middleware)
+        .concat(authMiddleware),
   });
 };
 

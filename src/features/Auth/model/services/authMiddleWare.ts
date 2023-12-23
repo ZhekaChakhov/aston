@@ -36,7 +36,5 @@ export const authMiddleware: Middleware =
       console.error("An error occurred during authentication:", action.error);
     }
 
-    // console.log("Action dispatched:ACTION", action);
-
     return next(action);
   };

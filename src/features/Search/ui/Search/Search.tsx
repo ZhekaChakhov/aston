@@ -3,6 +3,7 @@ import { CharacterCard } from "src/entities/CharacterCard";
 import { useGetByNameQuery } from "src/shared/api/charactersApi";
 import { favoritesApi } from "src/shared/api/favoritesApi";
 import { Character } from "src/shared/models/Character";
+import { Loader } from "src/shared/ui/Loader/Loader";
 
 export const Search = () => {
   const [value] = useSearchParams();
@@ -11,10 +12,15 @@ export const Search = () => {
     return <p className="text-2xl">Characters not found</p>;
   }
 
-  const { data: characters } = useGetByNameQuery(value.get("name"));
+  const { data: characters, isLoading: isCharactersLoading } =
+    useGetByNameQuery(value.get("name"));
 
-  const { data: favoriteCharacters } =
+  const { data: favoriteCharacters, isLoading: isFavoriteLoading } =
     favoritesApi.useGetFavoriteCharactersQuery();
+
+  if (isCharactersLoading || isFavoriteLoading) {
+    return <Loader />;
+  }
 
   return (
     characters.results && (

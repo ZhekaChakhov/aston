@@ -19,9 +19,11 @@ export const History = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  return !isRefetched || isLoading ? (
-    <Loader />
-  ) : (
+  if (!isRefetched || isLoading) {
+    return <Loader />;
+  }
+
+  return (
     <ul className="mt-8 px-7 flex justify-center items-center flex-col">
       {!history?.length ? (
         <div className="mt-10 text-xl text-center">

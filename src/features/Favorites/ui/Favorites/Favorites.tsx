@@ -21,9 +21,11 @@ export const Favorites = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  return !isRefetched || isLoading ? (
-    <Loader />
-  ) : (
+  if (!isRefetched || isLoading) {
+    return <Loader />;
+  }
+
+  return (
     <div>
       {!favoriteCharacters?.length ? (
         <div className="text-2xl">No favorite characters yet</div>

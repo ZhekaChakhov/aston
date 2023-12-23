@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "src/shared/ui/Button/Button";
 
-export const NotFoundPage = () => {
+const NotFoundPage = () => {
   return (
     <div className="flex items-center justify-center flex-col">
       <div>404 Not Found</div>
@@ -11,3 +11,5 @@ export const NotFoundPage = () => {
     </div>
   );
 };
+
+export default NotFoundPage;

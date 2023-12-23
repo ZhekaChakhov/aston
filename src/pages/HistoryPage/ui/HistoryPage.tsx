@@ -1,9 +1,4 @@
 import { History } from "src/features/Search";
 
-export const HistoryPage = () => {
-  return (
-    <div>
-      <History />
-    </div>
-  );
-};
+const HistoryPage = () => <History />;
+export default HistoryPage;

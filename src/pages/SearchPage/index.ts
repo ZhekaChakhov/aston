@@ -1,1 +1,3 @@
-export { SearchPage } from "./ui/SearchPage";
+import { SearchLazy } from "./ui/SearchLazy";
+
+export { SearchLazy as SearchPage };

@@ -1,1 +1,3 @@
-export { NotFoundPage } from "./ui/NotFoundPage";
+import { NotFoundLazy } from "./ui/NotFoundLazy";
+
+export { NotFoundLazy as NotFoundPage };

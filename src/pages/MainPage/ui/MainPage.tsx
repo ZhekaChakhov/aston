@@ -3,7 +3,7 @@ import { SearchBar } from "src/features/Search";
 import { CharacterContainer } from "src/widgets/CharacterContainer";
 import { Pagination } from "src/widgets/Pagination";
 
-export const MainPage = () => {
+const MainPage = () => {
   const [page, setPage] = React.useState(1);
   return (
     <>
@@ -13,3 +13,5 @@ export const MainPage = () => {
     </>
   );
 };
+
+export default MainPage;

@@ -1,1 +1,3 @@
-export { RegisterPage } from "./ui/RegisterPage";
+import { RegisterLazy } from "./ui/RegisterLazy";
+
+export { RegisterLazy as RegisterPage };

@@ -1,9 +1,9 @@
 import { Login } from "src/features/Auth";
 
-export const LoginPage = () => {
-  return (
-    <div>
-      <Login />
-    </div>
-  );
-};
+const LoginPage = () => (
+  <div>
+    <Login />
+  </div>
+);
+
+export default LoginPage;

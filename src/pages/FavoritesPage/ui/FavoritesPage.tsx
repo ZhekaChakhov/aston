@@ -1,9 +1,8 @@
 import { Favorites } from "src/features/Favorites";
 
-export const FavoritesPage = () => {
-  return (
-    <div>
-      <Favorites />
-    </div>
-  );
-};
+const FavoritesPage = () => (
+  <div>
+    <Favorites />
+  </div>
+);
+export default FavoritesPage;

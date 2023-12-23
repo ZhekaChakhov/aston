@@ -1,6 +1,6 @@
 import { Search, SearchBar } from "src/features/Search";
 
-export const SearchPage = () => {
+const SearchPage = () => {
   return (
     <div>
       <SearchBar />
@@ -8,3 +8,5 @@ export const SearchPage = () => {
     </div>
   );
 };
+
+export default SearchPage;

@@ -1,9 +1,11 @@
 import { Register } from "src/features/Auth";
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
   return (
     <div>
       <Register />
     </div>
   );
 };
+
+export default RegisterPage;

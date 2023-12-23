@@ -7,6 +7,7 @@ import { setupStore } from "src/app/providers/store";
 import "./firebase";
 
 import ErrorBoundary from "./app/providers/ErrorBoundary/ui/ErrorBoundary";
+import { ThemeProvider } from "./app/providers/theme";
 
 import "src/app/index.css";
 
@@ -15,9 +16,11 @@ const store = setupStore();
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <ErrorBoundary>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <ThemeProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ThemeProvider>
     </ErrorBoundary>
   </BrowserRouter>,
 );

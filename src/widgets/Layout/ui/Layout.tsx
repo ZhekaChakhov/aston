@@ -1,10 +1,12 @@
 /// <reference types="vite-plugin-svgr/client" />
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import {
   useAppDispatch,
   useAppSelector,
 } from "src/app/providers/store/config/hooks";
+import { ThemeContext } from "src/app/providers/theme/context/Context";
 import { NavLinks } from "src/entities/NavLinks";
 import { logout } from "src/features/Auth/model";
 import { getUser } from "src/features/Auth/model/selector/getUser";
@@ -12,8 +14,8 @@ import { setUser } from "src/features/Auth/model/selector/setUser";
 import ReactLogo from "src/shared/assets/icons/Rick_and_Morty.svg?react";
 import { getCurrentUser } from "src/shared/helpers/getCurrentUser";
 import { removeItem } from "src/shared/helpers/removeItem";
+import { useChekTheme } from "src/shared/lib/useCheckTheme";
 import { Button } from "src/shared/ui/Button/Button";
-
 interface Props {
   children?: ReactNode;
 }
@@ -22,9 +24,11 @@ export const Layout = ({ children }: Props) => {
   const dispatch = useAppDispatch();
 
   let user = getCurrentUser();
-
   useAppSelector(getUser);
   useAppSelector(setUser);
+
+  const { isLight, setIsLight } = useContext(ThemeContext);
+  const theme = useChekTheme();
 
   const handleLogout = async () => {
     try {
@@ -38,8 +42,8 @@ export const Layout = ({ children }: Props) => {
   };
 
   return (
-    <div>
-      <div className="shadow-sm bg-white">
+    <div className={theme}>
+      <div className="shadow-sm">
         <nav className="container p-7 text-center">
           <Link to="/">
             <ReactLogo className="w-1/4 h-1/3 mx-auto" />
@@ -47,9 +51,13 @@ export const Layout = ({ children }: Props) => {
         </nav>
       </div>
 
-      <div className="flex justify-between border-t-2">
+      <div className="flex justify-between">
         <NavLinks isAuth={!!user!} />
+
         <div className="flex justify-start lg:justify-end p-4 w-1/3 gap-4 text-md md:text-lg lg:text-2xl">
+          <button onClick={() => setIsLight(!isLight)}>
+            <Icon icon="mdi:theme-light-dark" width={50} height={50} />
+          </button>
           {user! ? (
             <Button
               onClick={handleLogout}

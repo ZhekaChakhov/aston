@@ -7,8 +7,7 @@ import {
 import { RootState } from "src/app/providers/store/config/store";
 
 const rawBaseQuery = fetchBaseQuery({
-  baseUrl:
-    "https://aston-react-f06d7-default-rtdb.europe-west1.firebasedatabase.app/",
+  baseUrl: process.env.FIREBASE_DATABASE_URL,
 });
 
 export const dynamicBaseQuery: BaseQueryFn<
@@ -31,8 +30,6 @@ export const dynamicBaseQuery: BaseQueryFn<
       },
     };
   }
-
-  // console.log(uid);
 
   const urlEnd = typeof args === "string" ? args : args.url;
   const adjustedUrl = `${uid}/${urlEnd}`;

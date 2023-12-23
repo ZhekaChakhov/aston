@@ -25,14 +25,12 @@ export const authMiddleware: Middleware =
     ].includes(action.type);
 
     if (actionPending) {
-      store.dispatch(authActions.setUser({ uid: null, isLoading: true }));
+      store.dispatch(authActions.setUser({ uid: null }));
     } else if (actionFulfilled) {
       if (action.payload) {
-        store.dispatch(
-          authActions.setUser({ uid: action.payload.uid, isLoading: false }),
-        );
+        store.dispatch(authActions.setUser({ uid: action.payload.uid }));
       } else {
-        store.dispatch(authActions.setUser({ uid: null, isLoading: false }));
+        store.dispatch(authActions.setUser({ uid: null }));
       }
     } else if (actionRejected) {
       console.error("An error occurred during authentication:", action.error);

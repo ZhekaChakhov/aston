@@ -11,8 +11,6 @@ import { SearchPage } from "src/pages/SearchPage";
 import { Loader } from "src/shared/ui/Loader/Loader";
 import { ProtectedRoute } from "src/widgets/ProtectedRoute";
 
-// TODO: fix private routes refresh bug
-
 export const AppRouter = () => {
   return (
     <Suspense fallback={<Loader />}>

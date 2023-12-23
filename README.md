@@ -105,7 +105,7 @@ npm run dev
 - [x] Использование Firebase для учетных записей:
       [AuthThunk](https://github.com/ZhekaChakhov/aston/blob/main/src/features/Auth/model/actions/authThunk.ts), для обращение к базе данных избранного и истории поиска используется база firebase: [Base](https://github.com/ZhekaChakhov/aston/blob/main/src/shared/api/config/baseApi.ts).
 
-- [x] **Низная связанность клиентского кода**, использующего апи кода, работающего с внешним стором
+- [ ] ~~**Низная связанность клиентского кода**, использующего апи кода, работающего с внешним стором~~
 
 - [x] Настроен CI: [CI](https://github.com/ZhekaChakhov/aston/blob/main/.github/workflows/github-actions.yml)
 

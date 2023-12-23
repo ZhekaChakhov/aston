@@ -1,9 +1,14 @@
 /// <reference types="vite-plugin-svgr/client" />
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "src/app/providers/store/config/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "src/app/providers/store/config/hooks";
 import { NavLinks } from "src/entities/NavLinks";
 import { logout } from "src/features/Auth/model";
+import { getUser } from "src/features/Auth/model/selector/getUser";
+import { setUserToLocalStorage } from "src/features/Auth/model/selector/setUserToLocalStorage";
 import ReactLogo from "src/shared/assets/icons/Rick_and_Morty.svg?react";
 import { getCurrentUser } from "src/shared/helpers/getCurrentUser";
 import { removeItem } from "src/shared/helpers/removeItem";
@@ -17,6 +22,9 @@ export const Layout = ({ children }: Props) => {
   const dispatch = useAppDispatch();
 
   let user = getCurrentUser();
+
+  useAppSelector(getUser);
+  useAppSelector(setUserToLocalStorage);
 
   const handleLogout = async () => {
     try {

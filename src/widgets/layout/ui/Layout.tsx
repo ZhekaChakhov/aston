@@ -56,7 +56,7 @@ export const Layout = ({ children }: Props) => {
                   text="Log In"
                 />
               </Link>
-              <Link to="/register">
+              <Link to="/register" id="signup-btn">
                 <Button
                   className={"bg-green-100 border-green-200"}
                   text="Sign Up"

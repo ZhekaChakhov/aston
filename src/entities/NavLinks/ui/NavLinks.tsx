@@ -13,7 +13,7 @@ export const NavLinks = ({ isAuth }: Props) => {
       <ul className="flex gap-4 text-md md:text-lg lg:text-2xl">
         {isAuth
           ? privateLinks.map((link) => (
-              <li key={link.id}>
+              <li key={link.id} id={link.title}>
                 <NavLink
                   to={link.link}
                   className={({ isActive }) =>

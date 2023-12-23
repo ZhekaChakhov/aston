@@ -102,6 +102,7 @@ export const Form = (props: Props) => {
               w-full py-3 mt-10 bg-gray-800 rounded-sm
               font-medium text-white uppercase
               focus:outline-none hover:bg-gray-700 hover:shadow-none"
+              id="form-btn"
             >
               {text}
             </button>

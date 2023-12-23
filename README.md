@@ -120,7 +120,7 @@ npm run dev
 - [ ] ~~Feature Flags. Реализовать фичу “Поделиться в телеграм”, закрытую под фича флагом.~~
 
 - [x] Добавить **тесты** через jest, react-testing-library или Playwright |
-      [wdio] (https://github.com/ZhekaChakhov/aston/blob/main/test/specs/user.e2e.ts)
+      [wdio e2e tests](https://github.com/ZhekaChakhov/aston/blob/main/test/specs/user.e2e.ts)
 
 - [x] Связь UI и бизнес-логики построена не через команды, а через **события**
 

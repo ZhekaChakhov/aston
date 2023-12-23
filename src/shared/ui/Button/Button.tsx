@@ -12,7 +12,7 @@ export const Button = (props: Props) => {
   return (
     <button
       type="button"
-      className={`p-3 inline-block font-semibold border-4 box-border ${className}`}
+      className={`text-sm md:text-md lg:text-lg p-1 lg:p-3 inline-block font-semibold border-4 box-border ${className}`}
       onClick={onClick}
     >
       {text}

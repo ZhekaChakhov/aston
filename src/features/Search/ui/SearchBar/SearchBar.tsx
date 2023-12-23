@@ -39,7 +39,7 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className="w-1/2 mx-auto">
+    <div className="w-3/4 lg:w-1/2 mx-auto">
       <div className="relative">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <svg

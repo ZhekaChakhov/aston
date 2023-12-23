@@ -24,7 +24,7 @@ export const Search = () => {
 
   return (
     characters.results && (
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
         {characters.results.map((character: Character) => (
           <div className="text-lg" key={character.id}>
             <CharacterCard

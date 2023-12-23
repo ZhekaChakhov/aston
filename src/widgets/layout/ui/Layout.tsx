@@ -8,7 +8,7 @@ import {
 import { NavLinks } from "src/entities/NavLinks";
 import { logout } from "src/features/Auth/model";
 import { getUser } from "src/features/Auth/model/selector/getUser";
-import { setUserToLocalStorage } from "src/features/Auth/model/selector/setUserToLocalStorage";
+import { setUser } from "src/features/Auth/model/selector/setUser";
 import ReactLogo from "src/shared/assets/icons/Rick_and_Morty.svg?react";
 import { getCurrentUser } from "src/shared/helpers/getCurrentUser";
 import { removeItem } from "src/shared/helpers/removeItem";
@@ -24,7 +24,7 @@ export const Layout = ({ children }: Props) => {
   let user = getCurrentUser();
 
   useAppSelector(getUser);
-  useAppSelector(setUserToLocalStorage);
+  useAppSelector(setUser);
 
   const handleLogout = async () => {
     try {
@@ -49,7 +49,7 @@ export const Layout = ({ children }: Props) => {
 
       <div className="flex justify-between border-t-2">
         <NavLinks isAuth={!!user!} />
-        <div className="flex justify-end p-4 w-1/3 gap-4 text-2xl">
+        <div className="flex justify-start lg:justify-end p-4 w-1/3 gap-4 text-md md:text-lg lg:text-2xl">
           {user! ? (
             <Button
               onClick={handleLogout}

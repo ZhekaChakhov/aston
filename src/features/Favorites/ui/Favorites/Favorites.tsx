@@ -28,9 +28,9 @@ export const Favorites = () => {
   return (
     <div>
       {!favoriteCharacters?.length ? (
-        <div className="text-2xl">No favorite characters yet</div>
+        <div className="text-lg lg:text-2xl">No favorite characters yet</div>
       ) : (
-        <div className="grid grid-cols-5 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
           {favoriteCharacters?.map((character) => (
             <CharacterCard
               character={character}

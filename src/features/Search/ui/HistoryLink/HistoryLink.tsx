@@ -30,7 +30,7 @@ export const HistoryLink = (props: Props) => {
     >
       <Link
         className="
-        w-full h-full text-lg font-semibold uppercase
+        w-full h-full text-md lg:text-lg font-semibold uppercase
         flex items-center hover:bg-gray-200
         "
         to={`/search?name=${item.name}`}

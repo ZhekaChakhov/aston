@@ -22,7 +22,7 @@ export const CharacterContainer = (props: { page: number }) => {
         </div>
       )}
       {error && <h1>Произошла ошибка при загрузке</h1>}
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5">
         {characters?.results &&
           characters.results.map((character: Character) => (
             <div key={character.id} className="">

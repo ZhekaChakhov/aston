@@ -26,7 +26,7 @@ export const History = () => {
   return (
     <ul className="mt-8 px-7 flex justify-center items-center flex-col">
       {!history?.length ? (
-        <div className="mt-10 text-xl text-center">
+        <div className="mt-10 text-md lg:text-xl text-center">
           <p>History is empty</p>
           <Link className="underline text-green-500" to="/">
             Back to main

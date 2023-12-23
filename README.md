@@ -45,7 +45,7 @@ npm run dev
 **React**
 
 - [x] **Пишем функциональные компоненты c хуками** в приоритете над классовыми.
-- [ ] ~~Есть разделение на **умные и глупые компоненты**~~
+- [x] Есть разделение на **умные и глупые компоненты**
 
 - [x] Есть **рендеринг списков** |
       [CharacterContainer](https://github.com/ZhekaChakhov/aston/blob/main/src/widgets/CharacterContainer/ui/CharacterContainer.tsx),
@@ -56,7 +56,8 @@ npm run dev
 - [x] Реализована хотя бы одна **форма** |
       [Form](https://github.com/ZhekaChakhov/aston/blob/main/src/features/Auth/ui/Form/Form.tsx)
 
-- [ ] ~~Есть применение Контекст API~~
+- [x] Есть применение Контекст API |
+      [ThemeProvider](https://github.com/ZhekaChakhov/aston/blob/main/src/app/providers/theme/ui/ThemeProvider.tsx)
 
 - [x] Есть применение **предохранителя** |
       [ErrorBoundary](https://github.com/ZhekaChakhov/aston/blob/main/src/app/providers/ErrorBoundary/ui/ErrorBoundary.tsx)
@@ -111,9 +112,7 @@ npm run dev
 
 - [ ] ~~Реализована **виртуализация списков**~~
 
-- [x] Используются **мемоизированные селекторы** (createSelector) |
-      [get user](https://github.com/ZhekaChakhov/aston/blob/main/src/features/Auth/model/selector/getUser.ts),
-      [set User](https://github.com/ZhekaChakhov/aston/blob/main/src/features/Auth/model/selector/setUser.ts)
+- [ ] ~~Используются **мемоизированные селекторы** (createSelector)~~
 - [ ] ~~Используется **нормализованная структура стейта** (createEntityAdapter)~~
 - [ ] ~~Проведена **оптимизация приложения**~~
 
@@ -122,7 +121,7 @@ npm run dev
 - [x] Добавить **тесты** через jest, react-testing-library или Playwright |
       [wdio e2e tests](https://github.com/ZhekaChakhov/aston/blob/main/test/specs/user.e2e.ts)
 
-- [x] Связь UI и бизнес-логики построена не через команды, а через **события**
+- [ ] ~~Связь UI и бизнес-логики построена не через команды, а через **события**~~
 
 - [ ] ~~**Project Console API**~~
 

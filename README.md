@@ -120,7 +120,7 @@ npm run dev
 - [ ] ~~Feature Flags. Реализовать фичу “Поделиться в телеграм”, закрытую под фича флагом.~~
 
 - [x] Добавить **тесты** через jest, react-testing-library или Playwright |
-      [wdio] (e2e test) (https://github.com/ZhekaChakhov/aston/blob/main/test/specs/user.e2e.ts)
+      [wdio] (https://github.com/ZhekaChakhov/aston/blob/main/test/specs/user.e2e.ts)
 
 - [x] Связь UI и бизнес-логики построена не через команды, а через **события**
 
@@ -130,4 +130,4 @@ npm run dev
 
 - Приложение построено согласно архитектуре [Feature-Sliced Design](https://feature-sliced.design/ru/)
 - Работа с формами организована с помощью [React-Hook-Form](https://react-hook-form.com/)
-- Для стилизации использован [tailwindCSS] (https://tailwindcss.com/)
+- Для стилизации использован [tailwindCSS](https://tailwindcss.com/)
